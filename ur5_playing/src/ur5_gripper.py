@@ -36,24 +36,24 @@ def ur5_gripper(msg):
     print("Grasping state:", state)
 
     # ========================= TEST ========================== #
-    # rospy.wait_for_service('add_two_ints')
-    # try:
-    #     add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
-    #     response = add_two_ints(fun, pin)
-    #     print('Result is: ', response.sum)
-    # except rospy.ServiceException as e:
-    #     print('Service call failed: %s' % e)
+     rospy.wait_for_service('add_two_ints')
+     try:
+         add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
+         response = add_two_ints(fun, pin)
+         print('Result is: ', response.sum)
+     except rospy.ServiceException as e:
+         print('Service call failed: %s' % e)
     # ======================= TEST END ============================= #
 
     # ========================= REAL ========================== #
-    rospy.wait_for_service('/ur_driver/set_io')
-    try:
-        grasping = rospy.ServiceProxy('/ur_driver/set_io', SetIO)
-        response = grasping(fun, pin, state)
-        return response
+    #rospy.wait_for_service('/ur_driver/set_io')
+    #try:
+     #   grasping = rospy.ServiceProxy('/ur_driver/set_io', SetIO)
+     #   response = grasping(fun, pin, state)
+      #  return response
 
-    except rospy.ServiceException as e:
-        print("Gripper calling failed: %s" % e)
+    #except rospy.ServiceException as e:
+     #   print("Gripper calling failed: %s" % e)
     # ========================================================= #
 
 
@@ -61,13 +61,13 @@ def ur5_gripper_control():
     rospy.init_node('ur5_gripper', anonymous=True)
 
     # ==================== REAL ================================
-    turn_on = rospy.ServiceProxy('/ur_driver/set_io', SetIO)
-    on = turn_on(4, 16, 24)
+    #turn_on = rospy.ServiceProxy('/ur_driver/set_io', SetIO)
+    #on = turn_on(4, 16, 24)
 
-    if on:
-        print('=== GRIPPER IS ON ===')
-    else:
-        print('=== GRIPPER IS OFF ===')
+    #if on:
+     #   print('=== GRIPPER IS ON ===')
+    #else:
+    #    print('=== GRIPPER IS OFF ===')
     # ============================================================
 
     rospy.Subscriber('gripper_command', Pose, ur5_gripper)
