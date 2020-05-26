@@ -19,14 +19,8 @@ limitations under the License.
 		<param name="port" value="9090"/>
 	</include>
 
-	<include file="$(find ur_gazebo)/launch/ur10_joint_limited.launch">
+	<include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
 	</include>
-
-	<include file="$(find  ur10_moveit_config)/launch/ur10_moveit_planning_execution.launch">
-	</include>
-
-	<!--include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
-	</include-->
 
 	<node name="file_server" pkg="file_server" type="file_server" output="screen"/>
 
