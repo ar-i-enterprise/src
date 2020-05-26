@@ -1,0 +1,20 @@
+<!--
+
+Author: Mohan pannirselvam (mohan.pannirselvam08@gmail.com)
+
+-->
+
+<launch>
+
+	<include file="$(find file_server)/launch/ros_sharp_communication.launch">
+		<arg name="port" value="9090" />
+	</include>
+
+	<arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
+	<arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+	<arg name="urdf_file" default="$(find xacro)/xacro --inorder '$(find ur_description)/urdf/ur10_joint_limited_root.urdf.xacro' transmission_hw_interface:=$(arg transmission_hw_interface)" />
+	
+	<param name="robot/name" value="UR10" />
+	<param name="robot_description" command="$(arg urdf_file)" />
+
+</launch>
