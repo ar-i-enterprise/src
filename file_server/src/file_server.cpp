@@ -1,6 +1,6 @@
 /*
 © Siemens AG, 2017-2018
-Author: Mohan Pannirselvam
+Author: Dr. Martin Bischoff (martin.bischoff@siemens.com)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

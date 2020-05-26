@@ -1,6 +1,6 @@
 <!--
 © Siemens AG, 2019
-Author: Mohan Pannirselvam
+Author: Sifan Ye (sifan.ye@siemens.com)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ Under your catkin workspace, type the following:
   <arg name="gui" default="true"/>
   <arg name="rvizconfig" default="$(find file_server)/rviz/config.rviz"/>
   
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model)"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)"/>
   <param name="use_gui" value="$(arg gui)"/>
   
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
